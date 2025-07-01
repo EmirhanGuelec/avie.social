@@ -1,0 +1,171 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AVIE - Startseite</title> 
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/handy.css' %}">
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  <script src="https://kit.fontawesome.com/a7fef2ebcc.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+ 
+<header class="site-header">
+  <a href="/startseite" class="logo">AVIE</a>
+  <nav class="nav-icons">
+    <a href="/suche" class="icon-link" title="Suche"><i class="fa-solid fa-magnifying-glass"></i></a>
+    <a href="/profilseite" class="icon-link profil-icon" title="Profil"><i class="fa-solid fa-user"></i></a>
+  </nav>
+</header>
+
+  <!-- FEED -->
+  <main class="feed-container">
+
+    {% for post in posts %}
+      <div class="post" data-post-id="{{ post.id }}">
+        <div class="post-header">
+          <span><a href="{% url 'profilseite' %}?profil={{ post.author }}"><b>@{{ post.author }}</b></a> – {{ post.created_at|date:"d.m.Y H:i" }}</span>
+          
+
+        </div>
+
+        {% if post.image %}
+          <img src="{{ post.image.url }}" class="post-image" alt="Bild">
+        {% endif %}
+
+        {% if post.video %}
+          <video controls class="post-video">
+            <source src="{{ post.video.url }}" type="video/mp4">
+            Dein Browser unterstützt keine Videos.
+          </video>
+        {% endif %}
+
+        <p class="post-text">{{ post.content }}</p>
+
+        <div class="post-actions">
+          <button class="btn-like {% if post.id in liked_posts %}liked{% endif %}"
+                  data-post-id="{{ post.id }}">
+            <i class="fa-solid fa-heart"></i>
+            <span class="like-count">{{ post.likes.count }}</span>
+          </button>
+          <button class="comment-toggle">
+            <i class="fa-solid fa-comment"></i> Kommentieren
+          </button>
+        </div>
+
+        <div class="comments">
+          {% for comment in post.comments.all %}
+            <p><b>@{{ comment.author }}:</b> {{ comment.content }}</p>
+          {% empty %}
+            <p>Keine Kommentare vorhanden.</p>
+          {% endfor %}
+        </div>
+
+        <div class="comment-form" style="display:none;">
+          <form>
+            {% csrf_token %}
+            <textarea name="content" rows="2" placeholder="Dein Kommentar..."></textarea>
+            <button type="submit">Abschicken</button>
+          </form>
+        </div>
+      </div>
+      <hr>
+    {% endfor %}
+
+  </main>
+
+<div class="footer-buttons">
+  <a href="/logout" title="Logout"><i class="fa-solid fa-right-to-bracket"></i></a>
+  <a href="/einstellungen" title="Einstellungen"><i class="fa-solid fa-gear"></i></a>
+  <a href="/impressum" title="Impressum"><i class="fa-solid fa-circle-info"></i></a>
+</div>
+
+<a href="/posten" class="add-post" title="Beitrag erstellen">
+  <i class="fa-solid fa-plus"></i>
+</a>
+ 
+
+  <!-- JAVASCRIPT für AJAX-Likes und -Kommentare -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const csrftoken = document.cookie.match(/csrftoken=([^;]+)/)[1];
+
+      // 1) Like-Button
+      document.querySelectorAll(".btn-like").forEach(btn => {
+        btn.addEventListener("click", async e => {
+          e.preventDefault();
+          const postId = btn.dataset.postId;
+          const res = await fetch("{% url 'toggle_like_ajax' %}", {
+            method: "POST",
+            headers: {
+              "X-CSRFToken": csrftoken,
+              "X-Requested-With": "XMLHttpRequest"
+            },
+            body: new URLSearchParams({ post_id: postId })
+          });
+          const data = await res.json();
+          if (res.ok) {
+            btn.querySelector(".like-count").textContent = data.count;
+            btn.classList.toggle("liked", data.liked);
+          } else {
+            console.error(data.error);
+          }
+        });
+      });
+
+      // 2) Kommentar-Panel toggel
+      document.querySelectorAll(".comment-toggle").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const postEl = btn.closest(".post");
+          const comments = postEl.querySelector(".comments");
+          const form = postEl.querySelector(".comment-form");
+          const isVisible = comments.style.display === "block";
+          comments.style.display = isVisible ? "none" : "block";
+          form.style.display = isVisible ? "none" : "block";
+        });
+      });
+
+      // 3) AJAX-Kommentar abschicken
+      document.querySelectorAll(".comment-form form").forEach(form => {
+        form.addEventListener("submit", async e => {
+          e.preventDefault();
+          const postEl = form.closest(".post");
+          const postId = postEl.dataset.postId;
+          const textarea = form.querySelector('textarea[name="content"]');
+          const content = textarea.value.trim();
+          if (!content) return;  // optional: client-seitige Leere-Prüfung
+
+          const formData = new FormData();
+          formData.append("post_id", postId);
+          formData.append("content", content);
+
+          const res = await fetch("{% url 'add_comment_ajax' %}", {
+            method: "POST",
+            headers: {
+              "X-CSRFToken": csrftoken,
+              "X-Requested-With": "XMLHttpRequest"
+            },
+            body: formData
+          });
+          const data = await res.json();
+          if (res.ok) {
+            const commentsEl = postEl.querySelector(".comments");
+            const p = document.createElement("p");
+            p.innerHTML = `<b>@${data.author}:</b> ${data.content} <span class="comment-time">${data.created_at}</span>`;
+            commentsEl.appendChild(p);
+            textarea.value = "";
+          } else {
+            console.error(data.error);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+

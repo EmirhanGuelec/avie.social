@@ -1,0 +1,119 @@
+/* Feed & Posts */
+.feed-container {
+  max-width: 600px; 
+  margin: 1rem auto 4rem; 
+  padding: 0 1rem;
+}
+.post {
+  background: #fff; 
+  border-radius: 12px; 
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem; 
+  padding: 1rem;
+}
+.post-header span { 
+  color: #555; 
+  font-size: .9rem; 
+}
+.post-image, 
+.post-video {
+  width: 100%; 
+  border-radius: 8px; 
+  margin: .75rem 0;
+}
+.post-text { 
+  line-height: 1.5;
+  margin-bottom: .75rem; 
+}
+.post-actions {
+  display: flex; 
+  gap: 1rem; 
+  align-items: center;
+}
+.post-actions button,
+.post-actions,
+.comment-toggle {
+  background: none; 
+  border: none; 
+  cursor: pointer;
+  display: flex; 
+  align-items: center; 
+  gap: .25rem; 
+  font-size: 1rem;
+  color: #333;
+}
+.post-actions button:hover,
+.post-actions,
+.comment-toggle:hover {
+  color: #ff4d4d;
+}
+
+/* Kommentare & Formular */
+.comments, 
+.comment-form {
+  display: none; 
+  margin-top: 1rem; 
+  border-top: 1px solid #eee; 
+  padding-top: 1rem;
+}
+.comments p { 
+  margin: .5rem 0; 
+  font-size: .95rem; 
+}
+.comment-form textarea {
+  width: 100%; 
+  border: 1px solid #ccc; 
+  border-radius: 6px;
+  padding: .5rem; 
+  resize: vertical;
+}
+.comment-form button {
+  margin-top: .5rem; 
+  background: #ff4d4d; 
+  color: #fff;
+  border: none; 
+  border-radius: 6px; 
+  padding: .5rem 1rem; cursor: pointer;
+}
+.comment-form button:hover { 
+  background: #1995AD; 
+}
+.footer-buttons {
+  position: fixed; 
+  bottom: 1rem; 
+  right: 1rem;
+  display: flex; 
+  flex-direction: column; 
+  gap: .75rem; 
+  z-index: 1000;
+}
+.footer-buttons a, 
+.add-post {
+  background: #fff; 
+  width: 48px; 
+  height: 48px; 
+  border-radius: 24px;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2); text-decoration: none;
+  font-size: 1.2rem; 
+  color: #333; 
+  transition: background-color 0.3s;
+}
+.footer-buttons a:hover { 
+  background: #f0f0f0; 
+}
+.add-post {
+  position: fixed; 
+  bottom: 1rem; 
+  left: 1rem;
+  background: #ff4d4d; 
+  color: #fff; 
+  font-size: 1.5rem; 
+  z-index: 1000;
+}
+.add-post:hover { 
+  background: #1995AD; 
+  color: #fff; 
+}

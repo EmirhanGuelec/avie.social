@@ -1,0 +1,44 @@
+@media screen and (max-width: 600px) {
+    
+    .logo {
+        font-size: 24px;
+    }
+
+    .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-icons {
+        width: 100%;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        justify-content: flex-start;
+    }
+
+    .icon-link {
+        flex: 1 0 auto;
+        text-align: center;
+        margin: 5px 10px;
+    }
+
+    .container,
+    .posten-container,
+    .login-container,
+    .settings-container {
+        width: 90%; 
+        padding: 15px;
+    }
+
+    .profilfeld,
+    .beitragsfeld {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .profilbild {
+        width: 150px;
+        height: 150px;
+    }
+
+}

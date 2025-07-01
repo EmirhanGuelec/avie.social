@@ -1,0 +1,89 @@
+.profilfeld,
+.beitragsfeld {
+  background-color: #1995AD;
+  margin: 20px auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 1000px;
+  border-radius: 8px;
+  border: 3px solid black;
+}
+.profilbild {
+  display: block;
+  margin: 0 auto 20px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.profilinfos {
+  background-color: #BCBABE;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 4px;
+  width: 100%;
+}
+.profilinfos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.profilrechts {
+  text-align: right;
+  margin-top: 10px;
+}
+.profile-titel {
+  margin: 0.5rem 0 0.25rem;
+  font-size: 1.75rem;
+  color: #333;
+}
+.profil-header {
+  text-align: center;
+  margin: 2rem 0;
+}
+.profil-bio {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.4;
+  margin: 0.5rem auto;
+  max-width: 500px;
+}
+.profil-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 1rem;
+}
+.post {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+.post-image,
+.post-video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 0.5rem 0;
+}
+.post-video {
+  max-height: 400px;
+}
+.post-text {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}

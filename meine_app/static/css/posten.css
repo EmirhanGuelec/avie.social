@@ -1,0 +1,43 @@
+/* Container für den Post-Erstell-Bereich */
+.posten-container {
+  background-color: #1995AD;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 10px;
+  border: 3px solid black;
+  color: black;
+}
+/* Titel im Container */
+.posten-container .posten-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+/* Formular-Layout */
+.posten-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+/* Inputs & Textarea */
+.posten-form input[type="text"],
+.posten-form textarea,
+.posten-form input[type="file"] {
+  background-color: #BCBABE;
+  border: 1px solid black;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 4px;
+}
+/* Submit-Button */
+.posten-form button {
+  padding: 12px;
+  background-color: #A1D6E2;
+  border: 2px solid black;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.posten-form button:hover {
+  background-color: #F1F1F2;
+}

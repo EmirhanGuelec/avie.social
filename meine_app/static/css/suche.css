@@ -1,0 +1,42 @@
+.suche-container {
+  max-width: 600px; 
+  margin: 2rem auto; 
+  padding: 0 1rem;
+}
+.suche-form { 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+}
+.suche-input {
+  flex: 1; 
+  padding: .5rem; 
+  border: 1px solid #ccc; 
+  border-radius: 6px;
+}
+.suche-btn {
+  background: #1995AD; 
+  border: none; 
+  border-radius: 6px;
+  padding: .5rem 1rem; 
+  color: #fff; 
+  cursor: pointer;
+}
+.suche-btn:hover { 
+  background: #145A6B; 
+}
+.suche-results {
+  list-style: none; 
+  padding: 0; 
+  margin-top: 1rem;
+}
+.suche-results li { 
+  margin: .5rem 0; 
+}
+.suche-results a {
+  text-decoration: none; 
+  color: #1995AD;
+}
+.suche-results a:hover { 
+  text-decoration: underline; 
+}
