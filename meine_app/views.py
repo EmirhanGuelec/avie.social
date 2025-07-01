@@ -280,3 +280,14 @@ def einstellungen(request):
 def logout_view(request):
     logout(request)
     return redirect('login')
+
+@login_required
+def delete_post(request, post_id):
+    if request.method == "POST":
+        post = get_object_or_404(Post, id=post_id)
+        if post.author == request.user.username:
+            post.delete()
+            messages.success(request, "Beitrag erfolgreich gelöscht.")
+        else:
+            messages.error(request, "Du kannst diesen Beitrag nicht löschen.")
+    return redirect('profilseite')

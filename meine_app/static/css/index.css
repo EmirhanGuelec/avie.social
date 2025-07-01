@@ -78,32 +78,6 @@
 .comment-form button:hover { 
   background: #1995AD; 
 }
-.footer-buttons {
-  position: fixed; 
-  bottom: 1rem; 
-  right: 1rem;
-  display: flex; 
-  flex-direction: column; 
-  gap: .75rem; 
-  z-index: 1000;
-}
-.footer-buttons a, 
-.add-post {
-  background: #fff; 
-  width: 48px; 
-  height: 48px; 
-  border-radius: 24px;
-  display: flex; 
-  justify-content: center; 
-  align-items: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2); text-decoration: none;
-  font-size: 1.2rem; 
-  color: #333; 
-  transition: background-color 0.3s;
-}
-.footer-buttons a:hover { 
-  background: #f0f0f0; 
-}
 .add-post {
   position: fixed; 
   bottom: 1rem; 

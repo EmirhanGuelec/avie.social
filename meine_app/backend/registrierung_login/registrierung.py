@@ -15,7 +15,7 @@ def registrieren(request, USER_JSON_PATH):
             return render(request, 'meine_app/registrierung.html')
 
         try:
-            with open(USER_JSON_PATH, 'r') as f:
+            with open(USER_JSON_PATH, 'r',encoding='utf-8') as f:
                 users = json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
             users = []
@@ -31,10 +31,9 @@ def registrieren(request, USER_JSON_PATH):
             'password': password,
         })
 
-        with open(USER_JSON_PATH, 'w') as f:
+        with open(USER_JSON_PATH, 'w', encoding='utf-8') as f:
             json.dump(users, f, indent=2)
 
         messages.success(request, "Registrierung erfolgreich.")
-        return redirect(f"/login?username={username}&password={password}")
-
+        return redirect('login')
     return render(request, 'meine_app/registrierung.html')

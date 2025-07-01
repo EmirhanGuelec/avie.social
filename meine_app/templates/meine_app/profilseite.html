@@ -83,8 +83,23 @@
             </video>
           {% endif %}
 
+
           <p class="post-text">{{ post.content }}</p>
+
+          {% if post.author == username %}
+            <div class="post-actions">
+              <form action="{% url 'delete_post' post.id %}" method="post" class="delete-post-form">
+                {% csrf_token %}
+                <button type="submit" class="btn-delete">
+                  <i class="fa-solid fa-trash"></i> Löschen
+                </button>
+
+              </form>
+            </div>
+          {% endif %}
+
         </div>
+
         <hr>
       {% endfor %}
     {% else %}
