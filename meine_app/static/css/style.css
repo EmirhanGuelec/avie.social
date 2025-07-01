@@ -62,6 +62,11 @@ body {
   background-color: #F1F1F2;
   color: #1995AD;
 }
+.icon-link.active {
+  background-color: #A1D6E2;
+  color: white;
+  font-weight: bold;
+}
 .profil-icon {
   background-color: #1995AD;
   color: white;
@@ -105,6 +110,15 @@ body {
   position: fixed;
   bottom: 1rem;
   right: 1rem;
+  z-index: 1000;
+}
+.floating-footer-left {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   z-index: 1000;
 }
 .floating-footer a {
