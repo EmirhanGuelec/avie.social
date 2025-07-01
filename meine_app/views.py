@@ -148,7 +148,7 @@ def login_view(request):
         else:
             messages.error(request, 'Invalid username or password')
     
-    return render(request, 'meine_app/loging.html')
+    return render(request, 'meine_app/login.html')
 
 @login_required
 def posten(request):
