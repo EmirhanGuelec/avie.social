@@ -28,11 +28,17 @@
 
     {% for post in posts %}
       <div class="post" data-post-id="{{ post.id }}">
-        <div class="post-header">
-          <span><a href="{% url 'profilseite' %}?profil={{ post.author }}"><b>@{{ post.author }}</b></a> – {{ post.created_at|date:"d.m.Y H:i" }}</span>
-          
 
+        <div class="post-header">
+          <span class="username">
+            <a href="{% url 'profilseite' %}?profil={{ post.author }}"><b>@{{ post.author }}</b>
+            </a> 
+          </span>
+          <span class="post-date">
+            {{ post.created_at|date:"d.m.Y H:i" }}
+          </span>
         </div>
+
 
         {% if post.image %}
           <img src="{{ post.image.url }}" class="post-image" alt="Bild">
@@ -60,9 +66,15 @@
 
         <div class="comments">
           {% for comment in post.comments.all %}
-            <p><b>@{{ comment.author }}:</b> {{ comment.content }}</p>
-          {% empty %}
-            <p>Keine Kommentare vorhanden.</p>
+          <div class="comment-body">
+            <div class="comment-header">
+              <span class="comment-author">{{ comment.author }}</span>
+              <span class="comment-time">{{ comment.created_at|date:"d.m.Y H:i" }}</span>
+            </div>
+            <p class="comment-text">{{ comment.content }}</p>
+            {% empty %}
+            <p class="comment-text">Keine Kommentare vorhanden.</p>
+          </div>
           {% endfor %}
         </div>
 

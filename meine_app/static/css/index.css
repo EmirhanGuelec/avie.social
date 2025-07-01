@@ -10,20 +10,36 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   margin-bottom: 1.5rem; 
   padding: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .post-header span { 
   color: #555; 
   font-size: .9rem; 
 }
-.post-image, 
+.post-image,
 .post-video {
-  width: 100%; 
-  border-radius: 8px; 
-  margin: .75rem 0;
+  display: block;                  /* Damit margin auto greift */
+  width: 100%;                     /* Fluid bis zum Container */
+  max-width: 600px;                /* Obergrenze */
+  height: 350px;                   /* Einheitliche Höhe */
+  object-fit: cover;               /* Zuschneiden, ohne zu verzerren */
+  border-radius: var(--radius);    /* Abgerundete Ecken */
+  margin: var(--spacing) auto;     /* Vertikaler Abstand + Zentrierung */
+  box-shadow: var(--shadow);       /* Subtiles Drop-Shadow */
 }
 .post-text { 
   line-height: 1.5;
   margin-bottom: .75rem; 
+}
+.post:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 .post-actions {
   display: flex; 
@@ -47,14 +63,54 @@
 .comment-toggle:hover {
   color: #ff4d4d;
 }
+.username {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+.post-date {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
 
 /* Kommentare & Formular */
+.comment {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
 .comments, 
 .comment-form {
   display: none; 
   margin-top: 1rem; 
   border-top: 1px solid #eee; 
   padding-top: 1rem;
+}
+.comment-body {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.75rem;
+  flex: 1;
+  box-shadow: var(--shadow);
+}
+.comment-header {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+.comment-author {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-color);
+}
+.comment-time {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.comment-text {
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 .comments p { 
   margin: .5rem 0; 
@@ -116,4 +172,15 @@
 .add-post:hover { 
   background: #1995AD; 
   color: #fff; 
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 0.6rem 1.2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.btn.primary:hover {
+  opacity: 0.9;
 }
