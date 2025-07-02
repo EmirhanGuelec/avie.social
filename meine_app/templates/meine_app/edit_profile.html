@@ -37,12 +37,30 @@
 
         {% csrf_token %}
 
+        <div class="form-group">
+          <label for="id_avatar">
+            <i class="fa-solid fa-upload"></i>
+              Neues Profilbild wählen oder hierher ziehen
+            </label>
+          <img src="{{ avatar_url }}" alt="Profilbild" class="post-image">
+        </div>
+
         {% if avatar_url %}
           <div class="form-group">
             <label>Aktuelles Profilbild</label><br>
             <img src="{{ avatar_url }}" alt="Profilbild" class="post-image">
           </div>
         {% endif %}
+
+        {% if avatar_url %}
+          <div class="form-group avatar-preview">
+            <img src="{{ avatar_url }}" alt="Profilbild">
+            <button type="button" class="remove-avatar" aria-label="Profilbild entfernen">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+        {% endif %}
+
 
         <div class="form-group">
           {{ form.avatar.label_tag }}

@@ -49,4 +49,17 @@
         flex-direction: column; 
     }
 
+    .posten-form {
+        grid-template-columns: 1fr 1fr;
+    }
+ 
+    .posten-form > .btn.primary {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: 50%;
+    }
+    
+    .form-group[data-type="content"] { 
+        grid-column: 1 / -1; 
+    }
 }
