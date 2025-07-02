@@ -80,32 +80,6 @@ body {
 }
 
 /* Floating Footer & Add-Button */
-.footer-buttons {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  z-index: 1000;
-}
-.footer-buttons a {
-  background: #fff;
-  width: 48px;
-  height: 48px;
-  border-radius: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  color: #333;
-  text-decoration: none;
-  font-size: 1.2rem;
-  transition: background-color 0.3s;
-}
-.footer-buttons a:hover {
-  background: #f0f0f0;
-}
 .floating-footer {
   position: fixed;
   bottom: 1rem;

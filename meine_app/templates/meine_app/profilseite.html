@@ -27,7 +27,7 @@
   </header>
 
   <main class="feed-container">
-    <!-- Profil-Kopf -->
+    <
     <section class="profile-header">
       {% if avatar_url %}
         <img
@@ -69,11 +69,11 @@
     <!-- Beiträge des Nutzers -->
     {% if posts %}
       {% for post in posts %}
-        <div class="post">
+        <article class="post">
           <div class="post-header">
             <span>– {{ post.created_at|date:"d.m.Y H:i" }}</span>
           </div>
-
+          <div class="post-body">
           {% if post.image %}
             <img src="{{ post.image.url }}" class="post-image" alt="Bild">
           {% endif %}
@@ -97,8 +97,8 @@
               </form>
             </div>
           {% endif %}
-
-        </div>
+          </div>
+        </article>
 
         <hr>
       {% endfor %}
@@ -113,8 +113,14 @@
   <a href="/einstellungen" title="Einstellungen">
     <i class="fa-solid fa-gear"></i>
   </a>
-  <a href="/impressum"  title="Impressum">
+  <a href="/impressum" title="Impressum">
     <i class="fa-solid fa-circle-info"></i>
+  </a>
+</div>
+
+<div class="floating-footer">
+  <a href="/posten" class="floating-footer-left" title="Beitrag erstellen">
+    <i class="fa-solid fa-plus"></i>
   </a>
 </div>
 

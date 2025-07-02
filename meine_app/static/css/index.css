@@ -24,14 +24,14 @@
 }
 .post-image,
 .post-video {
-  display: block;                  /* Damit margin auto greift */
-  width: 100%;                     /* Fluid bis zum Container */
-  max-width: 600px;                /* Obergrenze */
-  height: 350px;                   /* Einheitliche Höhe */
-  object-fit: cover;               /* Zuschneiden, ohne zu verzerren */
-  border-radius: var(--radius);    /* Abgerundete Ecken */
-  margin: var(--spacing) auto;     /* Vertikaler Abstand + Zentrierung */
-  box-shadow: var(--shadow);       /* Subtiles Drop-Shadow */
+  display: block;          
+  height: auto;                     
+  max-width: 100%;                
+  height: 350px;                   
+  object-fit: cover;               
+  border-radius: 8px;    
+  margin: 0.5rem 0;     
+  /*box-shadow: var(--shadow);*/
 }
 .post-text { 
   line-height: 1.5;
@@ -61,7 +61,7 @@
 .post-actions button:hover,
 .post-actions,
 .comment-toggle:hover {
-  color: #ff4d4d;
+  color: #1995AD;
 }
 .username {
   font-size: 1.2rem;
@@ -125,7 +125,7 @@
 }
 .comment-form button {
   margin-top: .5rem; 
-  background: #ff4d4d; 
+  background: #1995AD; 
   color: #fff;
   border: none; 
   border-radius: 6px; 
@@ -134,27 +134,19 @@
 .comment-form button:hover { 
   background: #1995AD; 
 }
-.add-post {
-  position: fixed; 
-  bottom: 1rem; 
-  left: 1rem;
-  background: #ff4d4d; 
-  color: #fff; 
-  font-size: 1.5rem; 
-  z-index: 1000;
-}
-.add-post:hover { 
-  background: #1995AD; 
-  color: #fff; 
-}
+
 
 .btn.primary {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-  color: #fff;
+  background: var(--color-accent);
+  color: white;
   border-radius: var(--radius);
-  padding: 0.6rem 1.2rem;
+  padding: .5rem 1rem;
+  transition: transform .2s;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
-.btn.primary:hover {
+.btn-primary:hover,
+.btn-primary:focus {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
   opacity: 0.9;
 }

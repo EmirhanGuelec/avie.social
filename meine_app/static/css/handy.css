@@ -41,4 +41,12 @@
         height: 150px;
     }
 
+    .post { 
+        grid-template-columns: 200px 1fr; 
+    }
+    .post-body { 
+        display: flex; 
+        flex-direction: column; 
+    }
+
 }
