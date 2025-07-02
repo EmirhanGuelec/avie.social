@@ -8,6 +8,7 @@ urlpatterns = [
     path('post/toggle-like-ajax/', views.toggle_like_ajax,    name='toggle_like_ajax'),
     path('post/add-comment-ajax/', views.add_comment_ajax,    name='add_comment_ajax'),
     path('post/<int:post_id>/comment/', views.add_comment,    name='add_comment'),
+    path('post/delete/<int:post_id>/', views.delete_post,     name='delete_post'),
 
     path('suche/',                 views.suche,               name='suche'),
 
@@ -24,4 +25,6 @@ urlpatterns = [
     path('einstellungen/',         views.einstellungen,       name='einstellungen'),
     path('profilseite/',           views.profilseite,         name='profilseite'),
     path('profil/edit/',           views.edit_profile,        name='edit_profile'),
-    path('logout/',                views.logout_view,         name='logout'),]
+    path('logout/',                views.logout_view,         name='logout'),
+    ]
+    

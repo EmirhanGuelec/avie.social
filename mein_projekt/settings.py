@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'meine_app',
 ]
 
+SECURE_CROSS_ORIGIN_OPENER_POLICY=None
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
