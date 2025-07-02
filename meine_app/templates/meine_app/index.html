@@ -66,15 +66,9 @@
 
         <div class="comments">
           {% for comment in post.comments.all %}
-          <div class="comment-body">
-            <div class="comment-header">
-              <span class="comment-author">{{ comment.author }}</span>
-              <span class="comment-time">{{ comment.created_at|date:"d.m.Y H:i" }}</span>
-            </div>
-            <p class="comment-text">{{ comment.content }}</p>
-            {% empty %}
-            <p class="comment-text">Keine Kommentare vorhanden.</p>
-          </div>
+          <p><b>@{{ comment.author }}:</b> {{ comment.content }}</p>
+          {% empty %}
+            <p>Keine Kommentare vorhanden.</p>
           {% endfor %}
         </div>
 
