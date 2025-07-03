@@ -17,7 +17,7 @@
     "email": "123@123",
     "password": "pbkdf2_sha256$1000000$En2c1sOXBbs1Ucb6GuIKMp$gORLZIOMGyFqPGtAQnSGyXnYomZJHHSXFAQ6RDz38Z4=",
     "avatar_url": "/media/profile_pics/123_Screenshot%202025-07-03%20185620.png",
-    "bio": "\u00e4io\u00ea",
+    "bio": "äioê",
     "location": "Stuttgart"
   },
   {
@@ -72,7 +72,7 @@
     "password": "pbkdf2_sha256$1000000$3dpRH7Y88GcWnNm1X08sQA$e8e525TJvf5U0yzlV4DHKhkE+Vg54E562rGutW9EcHM=",
     "avatar_url": "/media/profile_pics/VeroniqueM_IMG_6379_jHaU6z3.jpeg",
     "bio": "",
-    "location": "Ludwigsburg \ud83c\udfd9\ufe0f"
+    "location": "Ludwigsburg 🏙️"
   },
   {
     "name": "Andreas ",
@@ -92,7 +92,7 @@
     "email": "bibibibi@bibibibi",
     "password": "pbkdf2_sha256$1000000$HAMzfbpBRqpBUrWm3ZHPpP$11FN0zMByLre5A9+DA8p3i5qDaVwIFtS2apanVR3Y4E=",
     "avatar_url": "/media/profile_pics/bibibibi_mein%20gesicht.jpeg",
-    "bio": "#\u00e4\u00fc\u00fcp\u00fcp",
+    "bio": "#äüüpüp",
     "location": "bibibibibibibibibibibibibibibibibibibibibibibibi"
   },
   {
@@ -107,7 +107,7 @@
     "email": "lolli@lolli",
     "password": "pbkdf2_sha256$1000000$OS7R1kQED3atWg2mfIH1b7$XQxGQI4EfZv4W4wPOdC713shSuTshwk9dxRfQPHyvQY=",
     "avatar_url": "/media/profile_pics/lolli_profilbild.jpg",
-    "bio": "lollilolli\u00f6\u00f6\u00f6\u00f6",
+    "bio": "lollilolliöööö",
     "location": "lollilolli"
   },
   {
@@ -115,5 +115,14 @@
     "username": "lollilolli",
     "email": "lollilolli@lollilolli",
     "password": "pbkdf2_sha256$1000000$ndIJn6xBlSL4U3utyG5lgN$J4wtCGIPdnq1bnDdEH+62pBxs0UBOkUmTshZ3cyqGMc="
+  },
+  {
+    "name": "KEVON",
+    "username": "Kevon",
+    "email": "a@a.a",
+    "password": "pbkdf2_sha256$1000000$mKh5RGJxFj6X6SdSu3wlDr$f1y72MxtRqMEG1SyIMjV1v6WLJg7P2YIfiWinmdAbB8=",
+    "avatar_url": "/media/profile_pics/Kevon_emi.jpg",
+    "bio": "",
+    "location": ""
   }
 ]

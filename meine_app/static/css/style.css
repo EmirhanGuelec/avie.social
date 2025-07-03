@@ -93,7 +93,6 @@ body {
   display: block;
   margin: auto;
 }
-}
 
 /* Feed-Container (Main-Bereich um Beiträge) */
 .feed-container {
@@ -143,4 +142,328 @@ body {
   background-color: #A1D6E2;
   color: white;
   font-weight: bold;
+}
+
+/* Comment styling with avatars */
+.comment {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  border-left: 3px solid #1995AD;
+}
+
+.comment-avatar {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #1995AD;
+  flex-shrink: 0;
+  background: #fff;
+}
+
+.comment-content-wrapper {
+  flex: 1;
+}
+
+.comment-content-wrapper .comment-author-link {
+  display: inline;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.comment-content {
+  color: #333;
+  line-height: 1.4;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.darkmode .comment {
+  background-color: #2a2a2a !important;
+  border-left-color: #A1D6E2 !important;
+}
+
+.darkmode .comment-avatar {
+  border-color: #A1D6E2 !important;
+}
+
+.darkmode .comment-content {
+  color: #f1f1f1 !important;
+}
+
+/* Search user link styling */
+.search-user-link {
+  text-decoration: none;
+  color: #1995AD;
+  font-weight: bold;
+  display: block;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.search-user-link:hover {
+  text-decoration: none;
+  background-color: #f0f0f0;
+}
+
+.darkmode .search-user-link {
+  color: #A1D6E2 !important;
+}
+
+.darkmode .search-user-link:hover {
+  background-color: #444 !important;
+}
+
+/* Profile link styling */
+.profile-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.profile-link:hover {
+  text-decoration: none;
+}
+
+.profile-link b {
+  color: #1995AD;
+  font-weight: bold;
+}
+
+.darkmode .profile-link b {
+  color: #A1D6E2 !important;
+}
+
+/* ==================== DARK MODE STYLES ==================== */
+body.darkmode {
+  background: #181818 !important;
+  color: #f1f1f1 !important;
+}
+
+/* Header dark mode */
+.darkmode .site-header {
+  background-color: #23272f !important;
+  border-color: #444 !important;
+}
+
+.darkmode .logo {
+  color: #f1f1f1 !important;
+}
+
+.darkmode .profil-icon {
+  background-color: #444 !important;
+}
+
+.darkmode .icon-link {
+  color: #f1f1f1 !important;
+}
+
+.darkmode .icon-link:hover {
+  background-color: #444 !important;
+}
+
+/* Feed and posts dark mode */
+.darkmode .feed-container {
+  background-color: #181818 !important;
+}
+
+.darkmode .post {
+  background-color: #23272f !important;
+  border-color: #444 !important;
+  color: #f1f1f1 !important;
+}
+
+.darkmode .post-header span {
+  color: #ccc !important;
+}
+
+.darkmode .profile-link {
+  color: #f1f1f1 !important;
+}
+
+.darkmode .post-text {
+  color: #f1f1f1 !important;
+}
+
+.darkmode .post-actions {
+  border-color: #444 !important;
+}
+
+.darkmode .post-actions button {
+  background-color: #444 !important;
+  color: #f1f1f1 !important;
+}
+
+.darkmode .post-actions button:hover {
+  background-color: #555 !important;
+}
+
+/* Forms dark mode */
+.darkmode input,
+.darkmode textarea,
+.darkmode select {
+  background-color: #23272f !important;
+  color: #f1f1f1 !important;
+  border-color: #444 !important;
+}
+
+.darkmode .btn.primary {
+  background-color: #1995AD !important;
+  color: #f1f1f1 !important;
+}
+
+.darkmode .btn.secondary {
+  background-color: #444 !important;
+  color: #f1f1f1 !important;
+}
+
+/* Settings container dark mode */
+.darkmode .settings-container {
+  background-color: #23272f !important;
+  color: #f1f1f1 !important;
+  border-color: #444 !important;
+}
+
+/* Floating footer dark mode */
+.darkmode .floating-footer a {
+  background-color: #444 !important;
+  color: #f1f1f1 !important;
+}
+
+.darkmode .floating-footer a:hover {
+  background-color: #555 !important;
+}
+
+/* Search results dark mode */
+.darkmode .suche-results {
+  background-color: #23272f !important;
+}
+
+.darkmode .suche-results li {
+  background-color: #23272f !important;
+  border-color: #444 !important;
+}
+
+.darkmode .suche-results li:hover {
+  background-color: #444 !important;
+}
+
+/* Search page dark mode */
+.darkmode .suche-container {
+  background-color: #23272f !important;
+  color: #f1f1f1 !important;
+  border-color: #444 !important;
+}
+
+.darkmode .suche-container h1,
+.darkmode .suche-container h2 {
+  color: #f1f1f1 !important;
+}
+
+.darkmode .suche-input {
+  background-color: #2a2a2a !important;
+  color: #f1f1f1 !important;
+  border-color: #444 !important;
+}
+
+.darkmode .suche-btn {
+  background-color: #1995AD !important;
+  color: #f1f1f1 !important;
+  border-color: #444 !important;
+}
+
+.darkmode .suche-btn:hover {
+  background-color: #147a8c !important;
+}
+
+.darkmode .suche-results li a {
+  color: #f1f1f1 !important;
+}
+
+.darkmode .suche-results li a:hover {
+  background-color: #444 !important;
+}
+
+/* Profile page dark mode */
+.darkmode .profile-header {
+  background-color: #23272f !important;
+  color: #f1f1f1 !important;
+}
+
+.darkmode .profile-bio,
+.darkmode .profile-location {
+  color: #ccc !important;
+}
+
+/* Comments dark mode */
+.darkmode .comments-section {
+  background-color: #23272f !important;
+  border-color: #444 !important;
+}
+
+.darkmode .comment {
+  background-color: #2a2a2a !important;
+  border-color: #444 !important;
+  color: #f1f1f1 !important;
+}
+
+.darkmode .comment-author {
+  color: #1995AD !important;
+}
+
+/* Posten form dark mode */
+.darkmode .posten-container {
+  background-color: #23272f !important;
+  color: #f1f1f1 !important;
+  border-color: #444 !important;
+}
+
+.darkmode .posten-title {
+  color: #f1f1f1 !important;
+}
+
+.darkmode .posten-form input[type="text"],
+.darkmode .posten-form textarea,
+.darkmode .posten-form input[type="file"] {
+  background-color: #2a2a2a !important;
+  color: #f1f1f1 !important;
+  border-color: #444 !important;
+}
+
+.darkmode .posten-form label {
+  color: #f1f1f1 !important;
+}
+
+.darkmode .field-error {
+  color: #ff6b6b !important;
+}
+
+/* Edit profile form dark mode */
+.darkmode .edit-profile-container {
+  background-color: #23272f !important;
+  color: #f1f1f1 !important;
+  border-color: #444 !important;
+}
+
+.darkmode .edit-profile-form label {
+  color: #f1f1f1 !important;
+}
+
+.darkmode .edit-profile-form input,
+.darkmode .edit-profile-form textarea {
+  background-color: #2a2a2a !important;
+  color: #f1f1f1 !important;
+  border-color: #444 !important;
+}
+
+.darkmode .current-avatar {
+  border-color: #444 !important;
 }

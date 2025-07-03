@@ -44,12 +44,19 @@
 
   <main class="settings-container">
     <h2>Einstellungen</h2>
+    
     <div class="darkmode-toggle-container">
       <label class="switch">
         <input type="checkbox" id="darkmode-toggle">
         <span class="slider round"></span>
       </label>
       <span>Dark Mode</span>
+    </div>
+    
+    <div class="color-picker-container">
+      <label for="username-color-picker">Username Link Farbe:</label>
+      <input type="color" id="username-color-picker" value="#1995AD" title="Wähle die Farbe für Username-Links">
+      <button id="reset-color-btn" class="reset-btn">Zurücksetzen</button>
     </div>
   </main>
 
@@ -69,6 +76,63 @@
         document.body.classList.remove('darkmode');
         localStorage.setItem('darkmode', 'false');
       }
+    });
+
+    // Username Color Picker
+    const colorPicker = document.getElementById('username-color-picker');
+    const resetBtn = document.getElementById('reset-color-btn');
+    const defaultColor = '#1995AD';
+    const defaultDarkColor = '#A1D6E2';
+
+    // Function to apply username colors
+    function applyUsernameColors(color, darkColor) {
+      // Remove existing custom styles
+      const existingStyle = document.getElementById('custom-username-colors');
+      if (existingStyle) {
+        existingStyle.remove();
+      }
+
+      // Create new style element
+      const style = document.createElement('style');
+      style.id = 'custom-username-colors';
+      style.textContent = `
+        .profile-link b { color: ${color} !important; }
+        .search-user-link { color: ${color} !important; }
+        .comment-author-link { color: ${color} !important; }
+        .darkmode .profile-link b { color: ${darkColor} !important; }
+        .darkmode .search-user-link { color: ${darkColor} !important; }
+        .darkmode .comment-author-link { color: ${darkColor} !important; }
+      `;
+      document.head.appendChild(style);
+    }
+
+    // Load saved color on page load
+    const savedColor = localStorage.getItem('username-color');
+    const savedDarkColor = localStorage.getItem('username-dark-color');
+    if (savedColor) {
+      colorPicker.value = savedColor;
+      applyUsernameColors(savedColor, savedDarkColor || defaultDarkColor);
+    } else {
+      colorPicker.value = defaultColor;
+    }
+
+    // Handle color picker changes
+    colorPicker.addEventListener('input', function() {
+      const selectedColor = this.value;
+      // Generate a lighter version for dark mode (or use default dark color)
+      const darkColor = selectedColor === defaultColor ? defaultDarkColor : selectedColor;
+      
+      localStorage.setItem('username-color', selectedColor);
+      localStorage.setItem('username-dark-color', darkColor);
+      applyUsernameColors(selectedColor, darkColor);
+    });
+
+    // Handle reset button
+    resetBtn.addEventListener('click', function() {
+      localStorage.removeItem('username-color');
+      localStorage.removeItem('username-dark-color');
+      colorPicker.value = defaultColor;
+      applyUsernameColors(defaultColor, defaultDarkColor);
     });
   </script>
 

@@ -62,6 +62,39 @@
     Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
   </main>
 
+<script>
+  // Dark mode initialization
+  if (localStorage.getItem('darkmode') === 'true') {
+    document.body.classList.add('darkmode');
+  }
+
+  // Username colors initialization
+  function applyUsernameColors(color, darkColor) {
+    const existingStyle = document.getElementById('custom-username-colors');
+    if (existingStyle) {
+      existingStyle.remove();
+    }
+
+    const style = document.createElement('style');
+    style.id = 'custom-username-colors';
+    style.textContent = `
+      .profile-link b { color: ${color} !important; }
+      .search-user-link { color: ${color} !important; }
+      .comment-author-link { color: ${color} !important; }
+      .darkmode .profile-link b { color: ${darkColor} !important; }
+      .darkmode .search-user-link { color: ${darkColor} !important; }
+      .darkmode .comment-author-link { color: ${darkColor} !important; }
+    `;
+    document.head.appendChild(style);
+  }
+
+  // Apply saved username colors
+  const savedColor = localStorage.getItem('username-color');
+  const savedDarkColor = localStorage.getItem('username-dark-color');
+  if (savedColor) {
+    applyUsernameColors(savedColor, savedDarkColor || '#A1D6E2');
+  }
+</script>
 </body>
 
 </html>

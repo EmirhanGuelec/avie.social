@@ -42,7 +42,8 @@ def startseite(request):
             all_users = json.load(f)
     except Exception:
         all_users = []
-    avatar_map = {u.get('username'): u.get('avatar_url', '') for u in all_users if u.get('username')}
+    avatar_map = {u.get('username'): u.get('avatar_url', '') for u in all_users if u.get('username') is not None and u.get('username') != ''}
+    
     for post in posts:
         post.avatar_url = avatar_map.get(post.author, '')
 
@@ -55,6 +56,7 @@ def startseite(request):
         'username': username,
         'liked_posts': liked_posts,
         'user_avatar': user_avatar,
+        'avatar_map': avatar_map,  # Pass the avatar_map to template
     })
 
 @login_required
@@ -112,10 +114,15 @@ def add_comment_ajax(request):
         return JsonResponse({"error": "Kommentar darf nicht leer sein"}, status=400)
     author = request.user.username
     comment = Comment.objects.create(post=post, author=author, content=content)
+    
+    # Get the author's avatar for the response
+    author_avatar = get_user_avatar(author)
+    
     return JsonResponse({
         "author": author,
         "content": comment.content,
-        "created_at": comment.created_at.strftime("%d.%m.%Y %H:%M")
+        "created_at": comment.created_at.strftime("%d.%m.%Y %H:%M"),
+        "avatar_url": author_avatar,
     })
 def register(request): 
     if request.method=='GET':
@@ -146,10 +153,15 @@ def freunde(request):
     return render(request, "meine_app/freunde.html")
 
 
+@login_required
 def impressum(request):
     username = request.user.username
+    user_avatar = get_user_avatar(username)
     
-    return render(request, "meine_app/impressum.html")
+    return render(request, "meine_app/impressum.html", {
+        'username': username,
+        'user_avatar': user_avatar,
+    })
 
 #def login(request):
     #return render(request, "meine_app/login.html")
@@ -177,11 +189,13 @@ def posten(request):
     if request.method == "POST" and request.FILES.get("datei"):
         datei = request.FILES["datei"]
         FileSystemStorage("/var/www/static/dateien/").save(datei.name, datei)
-       
+    
+    user_avatar = get_user_avatar(username)
 
     return render(request, "meine_app/posten.html", {
         "username": username,
-        "post_form": form
+        "post_form": form,
+        "user_avatar": user_avatar,
     })
 
 
@@ -208,10 +222,13 @@ def suche(request):
         except json.JSONDecodeError:
             print("users.json enthält ungültiges JSON")
 
+    user_avatar = get_user_avatar(username)
+
     return render(request, "meine_app/suche.html", {
         'username': username,
         'users':    users,
         'query':    query,
+        'user_avatar': user_avatar,
     })
 
 @login_required
@@ -232,9 +249,20 @@ def profilseite(request):
     except Exception:
         user_data = {}
 
+    # Avatar map for posts and comments
+    avatar_map = {u.get('username'): u.get('avatar_url', '') for u in all_users if u.get('username')}
+    for post in posts:
+        post.avatar_url = avatar_map.get(post.author, '')
+        # Also attach avatar URLs to comments
+        for comment in post.comments.all():
+            comment.avatar_url = avatar_map.get(comment.author, '')
+
     avatar_url = user_data.get('avatar_url', '')
     bio        = user_data.get('bio', '')
     location   = user_data.get('location', '')
+
+    # Profilbild des eingeloggten Nutzers für die Header-Navigation
+    user_avatar = get_user_avatar(current_user)
 
     return render(request, "meine_app/profilseite.html", {
         'username':     current_user,
@@ -243,6 +271,8 @@ def profilseite(request):
         'avatar_url':   avatar_url,
         'bio':          bio,
         'location':     location,
+        'user_avatar':  user_avatar,
+        'avatar_map':   avatar_map,
     })
 
 @login_required
@@ -285,14 +315,19 @@ def edit_profile(request):
         'form':       form,
         'avatar_url': user_data.get('avatar_url', ''),
         'username':   username,
+        'user_avatar': user_data.get('avatar_url', ''),
     })
 
 
 @login_required
 def einstellungen(request):
     username = request.user.username
+    user_avatar = get_user_avatar(username)
     
-    return render(request, "meine_app/einstellungen.html")
+    return render(request, "meine_app/einstellungen.html", {
+        'username': username,
+        'user_avatar': user_avatar,
+    })
 
 @login_required
 def logout_view(request):
@@ -309,3 +344,13 @@ def delete_post(request, post_id):
         else:
             messages.error(request, "Du kannst diesen Beitrag nicht löschen.")
     return redirect('profilseite')
+
+def get_user_avatar(username):
+    """Utility function to get user avatar URL from users.json"""
+    try:
+        with open(USER_JSON_PATH, 'r', encoding='utf-8') as f:
+            all_users = json.load(f)
+    except Exception:
+        all_users = []
+    avatar_map = {u.get('username'): u.get('avatar_url', '') for u in all_users if u.get('username') is not None and u.get('username') != ''}
+    return avatar_map.get(username, '')

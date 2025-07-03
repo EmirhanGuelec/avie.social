@@ -17,6 +17,52 @@
   margin-top: 30px;
 }
 
+/* Color picker container */
+.color-picker-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.color-picker-container label {
+  font-weight: bold;
+  color: black;
+  margin-bottom: 0;
+}
+
+.color-picker-container input[type="color"] {
+  width: 60px;
+  height: 40px;
+  border: 2px solid black;
+  border-radius: 6px;
+  cursor: pointer;
+  background: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.color-picker-container input[type="color"]:hover {
+  border-color: #333;
+}
+
+.color-picker-container .reset-btn {
+  padding: 8px 16px;
+  background-color: #ff6b6b;
+  color: white;
+  border: 2px solid black;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.color-picker-container .reset-btn:hover {
+  background-color: #ff5252;
+}
+
 /* Toggle Switch */
 .switch {
   position: relative;
@@ -51,16 +97,6 @@ input:checked + .slider:before {
   transform: translateX(22px);
 }
 
-/* Darkmode Styles */
-body.darkmode {
-  background: #181818 !important;
-  color: #f1f1f1 !important;
-}
-.darkmode .settings-container {
-  background-color: #23272f !important;
-  color: #f1f1f1 !important;
-  border-color: #444;
-}
 .settings-container h2 {
   text-align: center;
   margin-bottom: 25px;
@@ -107,4 +143,48 @@ button:hover {
 button.danger {
   background-color: #ff4d4d;
   color: white;
+}
+
+/* Dark mode styles for settings */
+.darkmode .settings-container {
+  background-color: #23272f !important;
+  color: #f1f1f1 !important;
+  border-color: #444 !important;
+}
+
+.darkmode .settings-container h2 {
+  color: #f1f1f1 !important;
+}
+
+.darkmode .color-picker-container label {
+  color: #f1f1f1 !important;
+}
+
+.darkmode .settings-form fieldset {
+  border-color: #444 !important;
+}
+
+.darkmode .settings-form input,
+.darkmode .settings-form select {
+  background-color: #2a2a2a !important;
+  color: #f1f1f1 !important;
+  border-color: #444 !important;
+}
+
+.darkmode button {
+  background-color: #444 !important;
+  color: #f1f1f1 !important;
+  border-color: #666 !important;
+}
+
+.darkmode button:hover {
+  background-color: #555 !important;
+}
+
+.darkmode .color-picker-container .reset-btn {
+  background-color: #ff4757 !important;
+}
+
+.darkmode .color-picker-container .reset-btn:hover {
+  background-color: #ff3742 !important;
 }
