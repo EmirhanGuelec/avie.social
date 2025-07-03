@@ -14,6 +14,7 @@ from meine_app.backend.registrierung_login import registrierung as mod_registrie
 from meine_app.backend.registrierung_login import login as mod_login
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.hashers import check_password
 
 
 USER_JSON_PATH = os.path.join(
@@ -146,7 +147,7 @@ def login_view(request):
             login(request, user)
             return redirect('startseite')  # Replace with your desired redirect
         else:
-            messages.error(request, 'Invalid username or password')
+            messages.error(request, 'Benutzername oder Passwort ist falsch.')
     
     return render(request, 'meine_app/login.html')
 

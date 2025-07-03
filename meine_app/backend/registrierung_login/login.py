@@ -1,6 +1,7 @@
 import json
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.contrib.auth.hashers import check_password
 
 def login_check(request, user_json_path):
     if request.method == 'GET':
@@ -17,8 +18,8 @@ def login_check(request, user_json_path):
             users = []
 
         for user in users:
-            if user['username'] == username and user['password'] == password:
-                return redirect(f"/startseite/?username={username}&password={password}")
+            if user['username'] == username and check_password(password, user['password']):
+                return redirect(f"/startseite/?username={username}")
 
         return render(request, 'meine_app/login.html', {"fehler": True})
 

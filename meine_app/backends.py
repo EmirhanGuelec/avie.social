@@ -20,18 +20,23 @@ class JSONAuthBackend:
                 users = json.load(f)
 
             for user_data in users:
-                if user_data['username'] == username and user_data['password'] == password:
-                    try:
-                        user = User.objects.get(username=username)
-                    except User.DoesNotExist:
-                        # Create a Django user object but don't save to database
-                        user = User(
-                            username=username,
-                            email=user_data['email'],
-                        )
-                        user.set_unusable_password()
-                        user.save()
-                    return user
+                if user_data['username'] == username:
+                     
+
+
+                    # Check if the password matches
+                    if check_password(password, user_data['password']):
+                        try:
+                            user = User.objects.get(username=username)
+                        except User.DoesNotExist:
+                            # Create a Django user object but don't save to database
+                            user = User(
+                                username=username,
+                                email=user_data['email'],
+                            )
+                            user.set_unusable_password()
+                            user.save()
+                        return user
         except Exception as e:
             print(f"Error during authentication: {e}")
         return None
