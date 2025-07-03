@@ -1,6 +1,7 @@
 import json
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.contrib.auth.hashers import make_password, check_password
 
 def registrieren(request, USER_JSON_PATH):
     if request.method == 'GET':
@@ -28,7 +29,7 @@ def registrieren(request, USER_JSON_PATH):
             'name': name,
             'username': username,
             'email': email,
-            'password': password,
+            'password': make_password(password),
         })
 
         with open(USER_JSON_PATH, 'w', encoding='utf-8') as f:
