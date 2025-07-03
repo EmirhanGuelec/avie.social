@@ -19,7 +19,7 @@ def login_check(request, user_json_path):
 
         for user in users:
             if user['username'] == username and check_password(password, user['password']):
-                return redirect(f"/startseite/?username={username}")
+                return redirect("/startseite")
 
         return render(request, 'meine_app/login.html', {"fehler": True})
 
