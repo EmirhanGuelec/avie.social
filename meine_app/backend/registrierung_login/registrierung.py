@@ -4,12 +4,12 @@ from django.contrib import messages
 from django.contrib.auth.hashers import make_password, check_password
 
 def registrieren(request, USER_JSON_PATH):
-    if request.method == 'GET':
-        name = request.GET.get('name')
-        username = request.GET.get('username')
-        email = request.GET.get('email')
-        password = request.GET.get('password')
-        confirm_password = request.GET.get('confirm-password')
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        confirm_password = request.POST.get('confirm-password')
 
         if password != confirm_password:
             messages.error(request, "Passwörter stimmen nicht überein.")
