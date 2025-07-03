@@ -63,9 +63,13 @@
         </div>
 
         <div class="form-actions" style="display: flex; gap: 1em;">
-          <a href="{% url 'startseite' %}" class="btn secondary" style="display: flex; align-items: center;">
-            <i class="fa-solid fa-arrow-left" style="margin-right: 0.5em;"></i> Zurück
-          </a>
+          <button class="btn primary">
+            <span class="ripple"></span>
+            <a href="{% url 'startseite' %}" class="btn secondary" style="display: flex; align-items: center;">
+              <i class="fa-solid fa-arrow-left" style="margin-right: 0.5em;"></i> Zurück
+            </a>
+          </button>
+
           <button class="btn primary">
             <span class="ripple"></span>
             <i class="fa-solid fa-paper-plane"></i> Posten

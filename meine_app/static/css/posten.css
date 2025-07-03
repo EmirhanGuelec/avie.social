@@ -9,6 +9,7 @@
   margin: 3rem auto;
   padding: calc(var(--spacing) * 2);
   color: var(--text-color);
+  background-color: #A1D6E2,
 }
 /* Titel im Container */
 .posten-container .posten-title {

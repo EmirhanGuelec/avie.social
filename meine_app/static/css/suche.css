@@ -1,17 +1,21 @@
-body, 
-input, 
-button, 
-a { 
+.body, 
+.input, 
+.button, 
+.a { 
   font-family: var(--font-family); 
 }
 
 .suche-container {
-  background-color: var(--color-surface);
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.4);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+  max-width: 700px;
+  margin: 3rem auto;
   padding: calc(var(--spacing) * 2);
-  max-width: 600px;
-  margin: 2rem auto;
+  color: var(--text-color);
+  background-color: #A1D6E2,
 }
 .suche-container h1 { 
   font-size: 2rem; 
