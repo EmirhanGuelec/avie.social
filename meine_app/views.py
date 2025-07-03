@@ -104,8 +104,12 @@ def add_comment_ajax(request):
         "content": comment.content,
         "created_at": comment.created_at.strftime("%d.%m.%Y %H:%M")
     })
-def register(request):
-    return mod_registrierung.registrieren(request, USER_JSON_PATH)
+def register(request): 
+    if request.method=='GET':
+        return render(request, 'meine_app/registrierung.html')
+    else:
+        return mod_registrierung.registrieren(request, USER_JSON_PATH)
+    
 
 def login_check(request):
     return mod_login.login_check(request, USER_JSON_PATH)

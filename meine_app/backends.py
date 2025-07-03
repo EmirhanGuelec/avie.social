@@ -16,7 +16,7 @@ USER_JSON_PATH = os.path.join(
 class JSONAuthBackend:
     def authenticate(self, request, username=None, password=None):
         try:
-            with open(USER_JSON_PATH, 'r') as f:
+            with open(USER_JSON_PATH, 'r', encoding='utf-8') as f:
                 users = json.load(f)
 
             for user_data in users:

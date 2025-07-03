@@ -15,7 +15,10 @@
     "name": "123",
     "username": "123",
     "email": "123@123",
-    "password": "pbkdf2_sha256$1000000$En2c1sOXBbs1Ucb6GuIKMp$gORLZIOMGyFqPGtAQnSGyXnYomZJHHSXFAQ6RDz38Z4="
+    "password": "pbkdf2_sha256$1000000$En2c1sOXBbs1Ucb6GuIKMp$gORLZIOMGyFqPGtAQnSGyXnYomZJHHSXFAQ6RDz38Z4=",
+    "avatar_url": "/media/profile_pics/123_Screenshot%202025-07-03%20185620.png",
+    "bio": "\u00e4io\u00ea",
+    "location": "Stuttgart"
   },
   {
     "name": "1234",
@@ -69,12 +72,48 @@
     "password": "pbkdf2_sha256$1000000$3dpRH7Y88GcWnNm1X08sQA$e8e525TJvf5U0yzlV4DHKhkE+Vg54E562rGutW9EcHM=",
     "avatar_url": "/media/profile_pics/VeroniqueM_IMG_6379_jHaU6z3.jpeg",
     "bio": "",
-    "location": "Ludwigsburg 🏙️"
+    "location": "Ludwigsburg \ud83c\udfd9\ufe0f"
   },
   {
     "name": "Andreas ",
     "username": "Aswid",
     "email": "1@2.3",
     "password": "pbkdf2_sha256$1000000$7G4gVsPs7nuEEWKuSfLvtM$UxHf4hWizjbb43+m2uxDVKkOwF4P0G4Q6zvZMS9r1ck="
+  },
+  {
+    "name": "uiiiiii",
+    "username": "uiiiiii",
+    "email": "uiiiiii@uiiiiii",
+    "password": "pbkdf2_sha256$1000000$fmQBlCVtdO9waPrHzrSMjo$2at8xK06LxxGniUDigU1WozHSHX5xbrHrm8lbX9yWWw="
+  },
+  {
+    "name": "bibibibi",
+    "username": "bibibibi",
+    "email": "bibibibi@bibibibi",
+    "password": "pbkdf2_sha256$1000000$HAMzfbpBRqpBUrWm3ZHPpP$11FN0zMByLre5A9+DA8p3i5qDaVwIFtS2apanVR3Y4E=",
+    "avatar_url": "/media/profile_pics/bibibibi_mein%20gesicht.jpeg",
+    "bio": "#\u00e4\u00fc\u00fcp\u00fcp",
+    "location": "bibibibibibibibibibibibibibibibibibibibibibibibi"
+  },
+  {
+    "name": "bibibibibibibibi",
+    "username": "bibibibibibibibi",
+    "email": "bibibibi@bibibibi",
+    "password": "pbkdf2_sha256$1000000$5zDdhYsMEpjrZLEz4sPsFM$7nFfqpHuRAlOwcam9z0Bl74G8SOl4W2iiLITVeLtcUs="
+  },
+  {
+    "name": "lolli",
+    "username": "lolli",
+    "email": "lolli@lolli",
+    "password": "pbkdf2_sha256$1000000$OS7R1kQED3atWg2mfIH1b7$XQxGQI4EfZv4W4wPOdC713shSuTshwk9dxRfQPHyvQY=",
+    "avatar_url": "/media/profile_pics/lolli_profilbild.jpg",
+    "bio": "lollilolli\u00f6\u00f6\u00f6\u00f6",
+    "location": "lollilolli"
+  },
+  {
+    "name": "lollilolli",
+    "username": "lollilolli",
+    "email": "lollilolli@lollilolli",
+    "password": "pbkdf2_sha256$1000000$ndIJn6xBlSL4U3utyG5lgN$J4wtCGIPdnq1bnDdEH+62pBxs0UBOkUmTshZ3cyqGMc="
   }
 ]
