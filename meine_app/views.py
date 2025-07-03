@@ -145,7 +145,7 @@ def login_view(request):
         
         if user is not None:
             login(request, user)
-            return redirect('startseite')  # Replace with your desired redirect
+            return redirect('startseite')  
         else:
             messages.error(request, 'Benutzername oder Passwort ist falsch.')
     
@@ -199,7 +199,7 @@ def suche(request):
 
 @login_required
 def profilseite(request):
-    # Wer ruft auf und wer wird angezeigt?
+    
     current_user = request.user.username
     
     profile_user = request.GET.get("profil", current_user)
@@ -270,7 +270,7 @@ def edit_profile(request):
         'username':   username,
     })
 
-#   username = request.GET.get("us
+
 @login_required
 def einstellungen(request):
     username = request.user.username

@@ -12,7 +12,7 @@ urlpatterns = [
 
     path('suche/',                 views.suche,               name='suche'),
 
-    # hier ggf. weitere Routen: profilseite, freunde, impressum, etc.
+    
     path('chat/',                  views.chat,                name='chat'),
     path('freunde/',               views.freunde,             name='freunde'),
     path('impressum/',             views.impressum,           name='impressum'),

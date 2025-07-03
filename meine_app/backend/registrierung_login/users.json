@@ -1,62 +1,80 @@
 [
   {
-    "name": "Testuser",
-    "username": "Testuser1",
-    "email": "test@test.de",
-    "password": "37"
+    "name": null,
+    "username": null,
+    "email": null,
+    "password": "!A9X9VJMyajRvUoDWNnXVyPuzxlOVyudS9lb7XNYt"
   },
   {
-    "name": "Testuser",
-    "username": "Testuser2",
-    "email": "test2@test.de",
-    "password": "38"
+    "name": "test",
+    "username": "test",
+    "email": "test@test",
+    "password": "pbkdf2_sha256$1000000$NjZgDzqNi32FsL8tTk6K1u$zCszezpw4Hl7/z0t2XDJD5kj3ebYxZmz2onyoJq3yfo="
   },
   {
     "name": "123",
     "username": "123",
     "email": "123@123",
-    "password": "123"
+    "password": "pbkdf2_sha256$1000000$En2c1sOXBbs1Ucb6GuIKMp$gORLZIOMGyFqPGtAQnSGyXnYomZJHHSXFAQ6RDz38Z4="
   },
   {
-    "name": "Testuser",
-    "username": "Testuser3",
-    "email": "test3@test.de",
-    "password": "37",
+    "name": "1234",
+    "username": "1234",
+    "email": "123@123",
+    "password": "1234"
+  },
+  {
+    "name": "aua",
+    "username": "aua",
+    "email": "AUA@AUA",
+    "password": "pbkdf2_sha256$1000000$9pixZ8jieKUJNULjU0DOgv$+3qemQ3EL3WA0jKnZs0nItE8o6fh/+k79ui0oJ6vAlg="
+  },
+  {
+    "name": "banan",
+    "username": "banan",
+    "email": "banan@banan",
+    "password": "pbkdf2_sha256$1000000$If1ISi750ys3WKQqNxuYrc$CTqNgU8j9bc7e3OJm+jJmqDBHRiMMnfTALe1pWilRwU="
+  },
+  {
+    "name": "koks",
+    "username": "koks",
+    "email": "koks@koks",
+    "password": "pbkdf2_sha256$1000000$eUNkUDi5pusCkGGfBWjHll$CrBOP2uIfTPuJ1jt0R1l6NhZUvBX4UUrhAnTBawFnzo="
+  },
+  {
+    "name": "kakakak",
+    "username": "coco",
+    "email": "kaka@kaka.kaka",
+    "password": "pbkdf2_sha256$1000000$wnEVctafuVFU0kOfGwyLWg$jmnnDQQrMua3wzCEUGRKyrmzM2hhejOyFMuL5ohmel4="
+  },
+  {
+    "name": "hdhd",
+    "username": "abc",
+    "email": "a@a",
+    "password": "pbkdf2_sha256$1000000$pIzewqLpNfACMZMQTomdnU$RF33et9KvmaRFzYz2z9XbG5xb24pyLIFOG8dOgYMfTE="
+  },
+  {
+    "name": "Bella",
+    "username": "Bella",
+    "email": "isabellakelm.ik@gmail.com",
+    "password": "pbkdf2_sha256$1000000$17aMk6EDHKCUaBkWotk8hQ$LJKXC28ppm07bJlaln9pd0q/LhvUXsBEF/O7sosCjp0=",
+    "avatar_url": "/media/profile_pics/Bella_ruhige%20Cartoon%20Welle%20mit%20babyblauem%20Hintergrund%2C%20Frame%201.png",
+    "bio": "Hey! :)",
+    "location": "Stuttgart"
+  },
+  {
+    "name": "Veronique",
+    "username": "VeroniqueM",
+    "email": "veronique.moerke@gmx.net",
+    "password": "pbkdf2_sha256$1000000$3dpRH7Y88GcWnNm1X08sQA$e8e525TJvf5U0yzlV4DHKhkE+Vg54E562rGutW9EcHM=",
+    "avatar_url": "/media/profile_pics/VeroniqueM_IMG_6379_jHaU6z3.jpeg",
     "bio": "",
-    "location": "eeee"
+    "location": "Ludwigsburg 🏙️"
   },
   {
-    "name": null,
-    "username": null,
-    "email": null,
-    "password": null
-  },
-  {
-    "name": "Testuser",
-    "username": "Testuser4",
-    "email": "test4@test.de",
-    "password": "37"
-  },
-  {
-    "name": "Test15",
-    "username": "Tester",
-    "email": "test@test.com",
-    "password": "test"
-  },
-  {
-    "name": "E",
-    "username": "E",
-    "email": "E@E",
-    "password": "E"
-  },
-  {
-    "name": "EE",
-    "username": "EE",
-    "email": "EE@EE"
-  },
-  {
-    "name": "EE111",
-    "username": "",
-    "email": "EE@EE"
+    "name": "Andreas ",
+    "username": "Aswid",
+    "email": "1@2.3",
+    "password": "pbkdf2_sha256$1000000$7G4gVsPs7nuEEWKuSfLvtM$UxHf4hWizjbb43+m2uxDVKkOwF4P0G4Q6zvZMS9r1ck="
   }
 ]

@@ -9,7 +9,7 @@ class PostForm(forms.ModelForm):
                 'rows': 4,
             }
         ),
-        required=False,  # Validierung im clean()
+        required=False, 
     )
 
     class Meta:

@@ -24,12 +24,12 @@ class JSONAuthBackend:
                      
 
 
-                    # Check if the password matches
+                    
                     if check_password(password, user_data['password']):
                         try:
                             user = User.objects.get(username=username)
                         except User.DoesNotExist:
-                            # Create a Django user object but don't save to database
+                            
                             user = User(
                                 username=username,
                                 email=user_data['email'],

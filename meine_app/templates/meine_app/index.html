@@ -103,12 +103,12 @@
 </div>
  
 
-  <!-- JAVASCRIPT für AJAX-Likes und -Kommentare -->
+  <!-- JAVASCRIPT für Likes und -Kommentare -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const csrftoken = document.cookie.match(/csrftoken=([^;]+)/)[1];
 
-      // 1) Like-Button
+      //Like-Button
       document.querySelectorAll(".btn-like").forEach(btn => {
         btn.addEventListener("click", async e => {
           e.preventDefault();
@@ -131,7 +131,7 @@
         });
       });
 
-      // 2) Kommentar-Panel toggel
+      //Kommentar-Panel 
       document.querySelectorAll(".comment-toggle").forEach(btn => {
         btn.addEventListener("click", () => {
           const postEl = btn.closest(".post");
@@ -143,7 +143,7 @@
         });
       });
 
-      // 3) AJAX-Kommentar abschicken
+      //Kommentar abschicken
       document.querySelectorAll(".comment-form form").forEach(form => {
         form.addEventListener("submit", async e => {
           e.preventDefault();
@@ -151,7 +151,7 @@
           const postId = postEl.dataset.postId;
           const textarea = form.querySelector('textarea[name="content"]');
           const content = textarea.value.trim();
-          if (!content) return;  // optional: client-seitige Leere-Prüfung
+          if (!content) return;  
 
           const formData = new FormData();
           formData.append("post_id", postId);
