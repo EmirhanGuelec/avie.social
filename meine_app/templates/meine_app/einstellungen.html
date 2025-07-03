@@ -21,8 +21,12 @@
     <a href="/suche" class="icon-link" title="Suche">
       <i class="fa-solid fa-magnifying-glass"></i>
     </a>
-    <a href="/profilseite" class="icon-link profil-icon" title="Profil">
-      <i class="fa-solid fa-user"></i>
+    <a href="/profilseite" class="profil-icon" title="Profil">
+      {% if user_avatar %}
+        <img src="{{ user_avatar }}" alt="Profilbild" class="profile-avatar">
+      {% else %}
+        <img src="{% static 'img/default_avatar.png' %}" alt="Profilbild" class="profile-avatar">
+      {% endif %}
     </a>
   </nav>
 </header>
@@ -40,32 +44,33 @@
 
   <main class="settings-container">
     <h2>Einstellungen</h2>
-
-    <form class="settings-form">
-
-      <fieldset>
-        <legend>Account-Daten</legend>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
-
-        <label for="username">Benutzername:</label>
-        <input type="text" id="username" name="username">
-
-        <label for="email">E-Mail:</label>
-        <input type="email" id="email" name="email">
-
-        <label for="password">Passwort ändern:</label>
-        <input type="password" id="password" name="password">
-      </fieldset>
-
-      <fieldset>
-        <legend>Account</legend>
-        <button type="button" class="danger">Konto löschen</button>
-      </fieldset>
-
-      <button type="submit">Änderungen speichern</button>
-    </form>
+    <div class="darkmode-toggle-container">
+      <label class="switch">
+        <input type="checkbox" id="darkmode-toggle">
+        <span class="slider round"></span>
+      </label>
+      <span>Dark Mode</span>
+    </div>
   </main>
+
+  <script>
+    // Darkmode Toggle
+    const toggle = document.getElementById('darkmode-toggle');
+    // Check localStorage
+    if (localStorage.getItem('darkmode') === 'true') {
+      document.body.classList.add('darkmode');
+      toggle.checked = true;
+    }
+    toggle.addEventListener('change', function() {
+      if (this.checked) {
+        document.body.classList.add('darkmode');
+        localStorage.setItem('darkmode', 'true');
+      } else {
+        document.body.classList.remove('darkmode');
+        localStorage.setItem('darkmode', 'false');
+      }
+    });
+  </script>
 
 </body>
 

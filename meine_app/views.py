@@ -36,12 +36,25 @@ def startseite(request):
         Like.objects.filter(username=username, post__in=posts)
             .values_list('post_id', flat=True)
     )
+    # Profilbilder direkt an die Posts anhängen
+    try:
+        with open(USER_JSON_PATH, 'r', encoding='utf-8') as f:
+            all_users = json.load(f)
+    except Exception:
+        all_users = []
+    avatar_map = {u.get('username'): u.get('avatar_url', '') for u in all_users if u.get('username')}
+    for post in posts:
+        post.avatar_url = avatar_map.get(post.author, '')
+
+    # Profilbild des eingeloggten Nutzers suchen
+    user_avatar = avatar_map.get(username, '')
     return render(request, "meine_app/index.html", {
         'posts': posts,
         'post_form': post_form,
         'comment_form': comment_form,
         'username': username,
         'liked_posts': liked_posts,
+        'user_avatar': user_avatar,
     })
 
 @login_required

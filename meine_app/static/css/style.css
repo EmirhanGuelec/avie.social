@@ -59,15 +59,40 @@ body {
 .icon-link:hover {
   background-color: #F1F1F2;
   color: #1995AD;
+  border-radius: 50% !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
 }
 .icon-link.active {
   background-color: #A1D6E2;
   color: white;
   font-weight: bold;
+  border-radius: 50% !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
 }
 .profil-icon {
   background-color: #1995AD;
   color: white;
+  border-radius: 50% !important;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  border: 2px solid #fff;
+}
+.profil-icon .profile-avatar {
+  width: 46px;
+  height: 46px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: #fff;
+  display: block;
+  margin: auto;
+}
 }
 
 /* Feed-Container (Main-Bereich um Beiträge) */

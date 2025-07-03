@@ -1,3 +1,13 @@
+.profile-avatar {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 6px;
+  border: 2px solid #1995AD;
+  background: #fff;
+  vertical-align: middle;
+}
 /* Feed & Posts */
 .feed-container {
   max-width: 600px; 
@@ -135,6 +145,11 @@
   background: #1995AD; 
 }
 
+.comment-count {
+  font-size: 0.9em;
+  color: #666;
+  margin-left: 4px;
+}
 
 .btn.primary {
   background: var(--color-accent);

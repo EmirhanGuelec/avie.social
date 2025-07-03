@@ -20,8 +20,12 @@
       <a href="{% url 'suche' %}" class="icon-link">
         <i class="fa-solid fa-magnifying-glass"></i>
       </a>
-      <a href="{% url 'profilseite' %}?profil={{ username }}" class="icon-link profil-icon active">
-        <i class="fa-solid fa-user"></i>
+      <a href="{% url 'profilseite' %}?profil={{ username }}" class="profil-icon active">
+        {% if user_avatar %}
+          <img src="{{ user_avatar }}" alt="Profilbild" class="profile-avatar">
+        {% else %}
+          <img src="{% static 'img/default_avatar.png' %}" alt="Profilbild" class="profile-avatar">
+        {% endif %}
       </a>
     </nav>
   </header>

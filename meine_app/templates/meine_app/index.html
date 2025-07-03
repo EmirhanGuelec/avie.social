@@ -19,7 +19,13 @@
   <a href="/startseite" class="logo">AVIE</a>
   <nav class="nav-icons">
     <a href="/suche" class="icon-link" title="Suche"><i class="fa-solid fa-magnifying-glass"></i></a>
-    <a href="/profilseite" class="icon-link profil-icon" title="Profil"><i class="fa-solid fa-user"></i></a>
+    <a href="/profilseite" class="profil-icon" title="Profil">
+      {% if user_avatar %}
+        <img src="{{ user_avatar }}" alt="Profilbild" class="profile-avatar">
+      {% else %}
+        <img src="{% static 'img/default_avatar.png' %}" alt="Profilbild" class="profile-avatar">
+      {% endif %}
+    </a>
   </nav>
 </header>
 
@@ -31,8 +37,14 @@
 
         <div class="post-header">
           <span class="username">
-            <a href="{% url 'profilseite' %}?profil={{ post.author }}"><b>@{{ post.author }}</b>
-            </a> 
+            <a href="{% url 'profilseite' %}?profil={{ post.author }}" class="profile-link">
+              {% if post.avatar_url %}
+                <img src="{{ post.avatar_url }}" alt="Profilbild" class="profile-avatar">
+              {% else %}
+                <img src="{% static 'img/default_avatar.png' %}" alt="Profilbild" class="profile-avatar">
+              {% endif %}
+              <b>@{{ post.author }}</b>
+            </a>
           </span>
           <span class="post-date">
             {{ post.created_at|date:"d.m.Y H:i" }}
@@ -61,12 +73,13 @@
           </button>
           <button class="comment-toggle">
             <i class="fa-solid fa-comment"></i> Kommentieren
+            <span class="comment-count">({{ post.comments.all|length }})</span>
           </button>
         </div>
 
         <div class="comments">
           {% for comment in post.comments.all %}
-          <p><b>@{{ comment.author }}:</b> {{ comment.content }}</p>
+          <p><b><a href="{% url 'profilseite' %}?profil={{ comment.author }}">@{{ comment.author }}</a>:</b> {{ comment.content }}</p>
           {% empty %}
             <p>Keine Kommentare vorhanden.</p>
           {% endfor %}
