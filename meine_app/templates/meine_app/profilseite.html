@@ -55,14 +55,11 @@
       {% endif %}
 
       {% if profile_user == username %}
-        <a
-          href="{% url 'edit_profile' %}"
-          class="btn-primary"
-        >
-          <button type="submit" class="btn primary"></button>
+        <button type="submit" class="btn primary">
+          <a href="{% url 'edit_profile' %}" class="btn-primary">
           <i class="fa-solid fa-pen-to-square"></i> Profil bearbeiten
-          </button>
-        </a>
+          </a>
+        </button>
       {% endif %}
     </section>
 
