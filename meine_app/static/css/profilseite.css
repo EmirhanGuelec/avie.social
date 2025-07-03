@@ -102,8 +102,26 @@
   color: #333;
   line-height: 1.5;
 }
-.btn-primary {
+/* Button-Stile */
+.btn.primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: white;
+  padding: .75rem 1.5rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  position: relative;
+  overflow: hidden;
+  transition: transform .1s, box-shadow .2s;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+}
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.btn.primary:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow);
 }
